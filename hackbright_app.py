@@ -76,9 +76,11 @@ def main():
     command = None
     while command != "quit":
         input_string = raw_input("HBA Database> ")
-        tokens = input_string.split()
+        tokens = input_string.split(' ', 1)
         command = tokens[0]
         args = tokens[1:]
+        args = args[0].split(", ")
+        print args
 
         if command == "student":
             get_student_by_github(*args) 
